@@ -1,0 +1,49 @@
+//@注	这个文件所在文件夹里的文件是不会被执行autoprefixer的，需要手动兼容
+// 公共样式
+html,body{
+	line-height: 1;
+}
+.clearfix{
+	display: inline-block;
+	&:after{
+		content: '.';
+		display: block;
+		visibility: hidden;
+		height: 0;
+		line-height: 0;
+		font-size: 0;
+		clear: both;
+	}
+}
+@media (-webkit-min-device-pixel-ratio: 1.5) , (min-device-pixel-ratio: 1.5){
+	.border-1px{
+		&:after{
+			-webkit-transform: scaleY(0.7);
+			transform: scaleY(0.7);
+		}
+	}
+}
+@media (-webkit-min-device-pixel-ratio: 2) , (min-device-pixel-ratio: 2){
+	.border-1px{
+		&:after{
+			-webkit-transform: scaleY(0.5);
+			transform: scaleY(0.5);
+		}
+	}
+}
+@media (-webkit-min-device-pixel-ratio: 2.5) , (min-device-pixel-ratio: 2.5){
+	.border-1px{
+		&:after{
+			-webkit-transform: scaleY(0.4);
+			transform: scaleY(0.4);
+		}
+	}
+}
+@media (-webkit-min-device-pixel-ratio: 3) , (min-device-pixel-ratio: 3){
+	.border-1px{
+		&:after{
+			-webkit-transform: scaleY(0.33);
+			transform: scaleY(0.33);
+		}
+	}
+}

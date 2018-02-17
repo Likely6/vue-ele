@@ -1,0 +1,45 @@
+// mixin
+@mixin border-1px($color,$align){
+	//实现1像素
+	position: relative;
+	&:after{
+		display: block;
+		position: absolute;
+		left: 0;
+		#{$align}: 0;
+		width: 100%;
+		border-top: 1px solid $color;
+		content: '';
+	}
+}
+@mixin border-none{
+	//去掉border
+	&:after{
+		border-top: none!important;
+	}
+}
+@mixin bg-image($url){
+	// 实现不同dpi下使用不同大小图片
+	background-image: url("images/" + $url + "@2x.png");
+	@media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3) {
+		background-image: url("images/" + $url + "@3x.png");		
+	}
+}
+
+
+
+// function
+//这种是淘宝做法,需要计算rem（具体如何实现百度）
+@baseFontSize: 75;//基于视觉稿横屏尺寸/10得出的基准font-size
+@function pxtrem($px){
+	@return $px / $baseFontSize * 1rem;
+}
+
+
+%split {
+	height: 16px;
+	border-top:1px solid rgba(7,17,27,0.1);
+	border-bottom:1px solid rgba(7,17,27,0.1);
+	background-color: #f3f5f7;
+	width: 100%;
+}
